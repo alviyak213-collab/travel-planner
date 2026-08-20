@@ -3,10 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content="0; url=/dashboard" />
     <title>Travel App | Dashboard</title>
     <link rel="stylesheet" href="styles.css" />
-    <script>window.location.replace('/dashboard');</script>
   </head>
   <body class="dashboard-body">
     <div class="dashboard-shell">
@@ -80,6 +78,20 @@
                 <option value="completed">Completed</option>
               </select>
             </label>
+            <div id="upcomingFields" class="trip-preferences-fields">
+              <label>
+                Budget
+                <input id="tripBudget" type="number" min="0" step="0.01" placeholder="50000" />
+              </label>
+              <label>
+                Number of people
+                <input id="tripPeople" type="number" min="1" step="1" placeholder="2" />
+              </label>
+              <label class="full-width">
+                Interests
+                <input id="tripInterests" type="text" placeholder="food, nature, museums" />
+              </label>
+            </div>
             <label>
               Route
               <select id="tripRoute">
