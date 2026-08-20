@@ -1,5 +1,6 @@
 """TravelMate server. Run: python add.py"""
 import json
+import os
 import secrets
 from datetime import date
 from pathlib import Path
@@ -269,4 +270,5 @@ DASH = """{% macro budget_row(label, amount, portion) -%}
 {% else %}<section class='content-heading' id='explore'><div><p class='section-kicker'>Upcoming trips</p><h2>Your next adventures</h2></div><a class='map-link' href='/dashboard?view=new'>View all trips →</a></section><div class='trip-history-list'>{% for trip in upcoming %}{% if trip.budget and trip.people and trip.interests %}{{ trip_card(trip) }}{% else %}<article class='history-row'><div><b>{{ trip.destination }}</b><span>Add budget, people, and interests to unlock planning tools.</span></div><a class='primary-btn small' href='/dashboard?edit={{ trip.id }}'>Complete trip</a></article>{% endif %}{% else %}<section class='empty-hero'><p class='section-kicker'>Your next story starts here</p><h2>No upcoming trips</h2><p>Build your next itinerary, route, and budget in a few simple steps.</p><a class='primary-btn' href='/dashboard?view=new'>Plan new trip</a></section>{% endfor %}</div>{% endif %}
 </main></div><script src='/script.js'></script></body></html>"""
 
-if __name__ == "__main__": app.run(port=8000, debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", "8000")), debug=False)
