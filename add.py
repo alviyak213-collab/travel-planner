@@ -137,6 +137,10 @@ def login():
         flash("Invalid email or password.")
     return render_template_string(AUTH, register=False)
 
+@app.get("/index.html")
+def index_page():
+    return redirect(url_for("login"))
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -151,6 +155,10 @@ def register():
             return redirect("/")
     return render_template_string(AUTH, register=True)
 
+@app.get("/register.html")
+def register_page():
+    return redirect(url_for("register"))
+
 @app.get("/dashboard")
 def dashboard():
     account = login_required()
@@ -162,6 +170,10 @@ def dashboard():
         view = "upcoming" if upcoming else "history"
     if edit: view = "new"
     return render_template_string(DASH, user=account, trips=account["trips"], upcoming=upcoming, edit=edit, view=view, svg=trip_svg, days=trip_days, estimated_budget=travel_budget(upcoming))
+
+@app.get("/dashboard.html")
+def dashboard_page():
+    return redirect(url_for("dashboard"))
 
 @app.post("/trip")
 @app.post("/trip/<trip_id>")
