@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "name": "alviya khan",
+      "email": "alviya@gmail.com",
+      "password": "scrypt:32768:8:1$xcwVaafTJhhB3Mew$e1bcdf2aa28a8460fb1afd1905a6266fe23af180add40e0919fcfa518a71ac0399281d95e4c0824c754d609a5c4b9adf7313541b904788b34d62dc2fdd4ecf99",
+      "trips": [
+        {
+          "id": "edbb41debb06",
+          "origin": "Lucknow",
+          "destination": "Moscow",
+          "start_date": "2026-08-27",
+          "end_date": "2026-09-17",
+          "status": "upcoming",
+          "route": "direct",
+          "stops": [
+            "Delhi"
+          ],
+          "budget": 200000.0,
+          "people": 4,
+          "interests": "food nature",
+          "legs": [
+            {
+              "from": "Lucknow",
+              "to": "Delhi",
+              "transport": "Car"
+            },
+            {
+              "from": "Delhi",
+              "to": "Moscow",
+              "transport": "Flight"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

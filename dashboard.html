@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="0; url=http://127.0.0.1:8000/dashboard" />
+    <title>Travel App | Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>window.location.replace('http://127.0.0.1:8000/dashboard');</script>
+  </head>
+  <body class="dashboard-body">
+    <div class="dashboard-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap sidebar-brand">
+          <span class="brand-badge">T</span>
+          <h1>TravelMate</h1>
+        </div>
+
+        <nav class="nav-links">
+          <a href="#" class="active">Overview</a>
+          <a href="#">Trips</a>
+          <a href="#">Bookings</a>
+          <a href="#">Profile</a>
+        </nav>
+
+        <button id="logoutBtn" class="secondary-btn">Logout</button>
+      </aside>
+
+      <main class="dashboard-content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Dashboard</p>
+            <h2 id="welcomeText">Welcome</h2>
+          </div>
+          <button id="showTripFormBtn" class="primary-btn small">Plan a trip</button>
+        </header>
+
+        <section class="stats-grid">
+          <article class="stat-card accent-blue">
+            <span>Total trips</span>
+            <strong id="totalTrips">0</strong>
+          </article>
+          <article class="stat-card accent-green">
+            <span>Completed</span>
+            <strong id="completedTrips">0</strong>
+          </article>
+          <article class="stat-card accent-orange">
+            <span>Upcoming</span>
+            <strong id="upcomingTrips">0</strong>
+          </article>
+        </section>
+
+        <section id="tripFormPanel" class="panel trip-form-panel" hidden>
+          <div class="panel-header">
+            <h3 id="tripFormTitle">Plan a new trip</h3>
+            <button id="cancelTripBtn" class="text-btn" type="button">Cancel</button>
+          </div>
+          <form id="tripForm" class="trip-form">
+            <input type="hidden" id="tripId" />
+            <label>
+              Starting from
+              <input id="tripOrigin" type="text" placeholder="Mumbai, India" required />
+            </label>
+            <label>
+              Destination
+              <input id="tripDestination" type="text" placeholder="Paris, France" required />
+            </label>
+            <label>
+              Start date
+              <input id="tripStartDate" type="date" required />
+            </label>
+            <label>
+              End date
+              <input id="tripEndDate" type="date" required />
+            </label>
+            <label>
+              Status
+              <select id="tripStatus">
+                <option value="upcoming">Upcoming</option>
+                <option value="completed">Completed</option>
+              </select>
+            </label>
+            <label>
+              Route
+              <select id="tripRoute">
+                <option value="direct">Direct</option>
+                <option value="stops">Has stops</option>
+              </select>
+            </label>
+            <label id="tripTransportField">
+              Travelling by
+              <select id="tripTransport">
+                <option value="Flight">Flight</option>
+                <option value="Train">Train</option>
+                <option value="Car">Car</option>
+                <option value="Bus">Bus</option>
+                <option value="Ship">Ship</option>
+              </select>
+            </label>
+            <label id="stopsField" hidden>
+              Stops
+              <textarea id="tripStops" rows="3" placeholder="Enter each stop on a new line&#10;Example: B"></textarea>
+            </label>
+            <div id="tripLegsField" class="trip-legs" hidden>
+              <strong>Travel method for each leg</strong>
+              <div id="tripLegs"></div>
+            </div>
+            <button class="primary-btn small" type="submit">Save trip</button>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h3>Trip history</h3>
+          </div>
+
+          <p id="emptyTrips" class="empty-state">No trips yet. Plan your first trip to see it here.</p>
+          <ul id="tripHistory" class="activity-list" aria-live="polite"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

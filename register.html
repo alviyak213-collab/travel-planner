@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel App | Register</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="auth-shell">
+      <div class="auth-card">
+        <div class="brand-wrap">
+          <span class="brand-badge">T</span>
+          <h1>TravelMate</h1>
+        </div>
+
+        <h2>Create account</h2>
+        <p class="subtitle">Join and start planning unforgettable trips.</p>
+
+        <form id="registerForm" class="auth-form" method="post" action="http://127.0.0.1:8000/register">
+          <label>
+            Full name
+            <input type="text" id="registerName" name="name" placeholder="John Doe" required />
+          </label>
+
+          <label>
+            Email
+            <input type="email" id="registerEmail" name="email" placeholder="you@example.com" required />
+          </label>
+
+          <label>
+            Password
+            <input type="password" id="registerPassword" name="password" placeholder="Create a password" required />
+          </label>
+
+          <label>
+            Confirm password
+            <input type="password" id="confirmPassword" name="confirm_password" placeholder="Re-enter password" required />
+          </label>
+
+          <button type="submit" class="primary-btn">Register</button>
+        </form>
+
+        <div id="authMessage" class="message" aria-live="polite"></div>
+
+        <p class="switch-link">
+          Already have an account?
+          <a href="http://127.0.0.1:8000/">Login</a>
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
